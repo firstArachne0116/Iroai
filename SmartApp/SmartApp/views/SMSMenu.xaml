@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 x:Class="SmartApp.views.SMSMenu" x:Name="PopupSMS">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation PositionIn="Bottom"
+                                   PositionOut="Bottom"
+                                   ScaleIn="0.5"
+                                   ScaleOut="0.5"
+                                   DurationIn="300"
+                                   EasingIn="CubicInOut" />
+    </pages:PopupPage.Animation>
+    <StackLayout HorizontalOptions="End"
+                 VerticalOptions="End"
+                 Padding="0,0,0,50">
+        <AbsoluteLayout Margin="-10,-15,-10,-10" x:Name="MainLayout">
+            <Frame x:Name="FrameContainer"
+                   Margin="0,0,0,0"
+                   HorizontalOptions="Center"
+                   BorderColor="Transparent"
+                   BackgroundColor="White">
+                <StackLayout Orientation="Horizontal"
+                            HorizontalOptions="FillAndExpand"
+                            Margin="0"
+                            Spacing="0"
+                            Padding="3,0,0,0">
+                    <Grid VerticalOptions="FillAndExpand" Margin="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Orientation="Horizontal"
+                            HorizontalOptions="FillAndExpand"
+                            Margin="0"
+                            Padding="0"
+                            BackgroundColor="Transparent"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="10"
+                            Grid.Row="0">
+                            <Label Text="共有"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal"
+                            HorizontalOptions="FillAndExpand"
+                            Margin="0"
+                            Spacing="0"
+                            Padding="0"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="10"
+                            Grid.Row="2">
+                            <Label BackgroundColor="#7574bc"
+                                HeightRequest="{OnPlatform iOS=5, Android=5}"
+                                WidthRequest="{OnPlatform iOS=20, Android=20}"/>
+                            <Label BackgroundColor="#a165a8"
+                                HeightRequest="{OnPlatform iOS=5, Android=5}"
+                                WidthRequest="{OnPlatform iOS=20, Android=20}"/>
+                            <Label BackgroundColor="#0098b9"
+                                HeightRequest="{OnPlatform iOS=5, Android=5}"
+                                WidthRequest="{OnPlatform iOS=20, Android=20}"/>
+                            <Label BackgroundColor="#6c9ac5"
+                                HeightRequest="{OnPlatform iOS=5, Android=5}"
+                                WidthRequest="{OnPlatform iOS=20, Android=20}"/>
+                            <Label BackgroundColor="#5bafc4"
+                                HeightRequest="{OnPlatform iOS=5, Android=5}"
+                                WidthRequest="{OnPlatform iOS=20, Android=20}"/>
+                            <Label BackgroundColor="#add1da"
+                                HeightRequest="{OnPlatform iOS=5, Android=5}"
+                                WidthRequest="{OnPlatform iOS=20, Android=20}"/>
+                            <Label BackgroundColor="#41b879"
+                                HeightRequest="{OnPlatform iOS=5, Android=5}"
+                                WidthRequest="{OnPlatform iOS=20, Android=20}"/>
+                            <Label BackgroundColor="#b7c82b"
+                                HeightRequest="{OnPlatform iOS=5, Android=5}"
+                                WidthRequest="{OnPlatform iOS=20, Android=20}"/>
+                            <Label BackgroundColor="#ffad36"
+                                HeightRequest="{OnPlatform iOS=5, Android=5}"
+                                WidthRequest="{OnPlatform iOS=20, Android=20}"/>
+                            <Label BackgroundColor="#dd443b"
+                                HeightRequest="{OnPlatform iOS=5, Android=5}"
+                                WidthRequest="{OnPlatform iOS=20, Android=20}"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal"
+                            HorizontalOptions="FillAndExpand"
+                            Margin="-5,0"
+                            Padding="0"
+                            BackgroundColor="Transparent"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="10"
+                            Grid.Row="3">
+                            <Button HorizontalOptions="Start"
+                                    BackgroundColor="Transparent"
+                                    Image="facebook.png"
+                                    Text="Facebook">
+                            </Button>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal"
+                            HorizontalOptions="FillAndExpand"
+                            Margin="-5,0"
+                            Padding="0"
+                            BackgroundColor="Transparent"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="10"
+                            Grid.Row="4">
+                            <Button HorizontalOptions="Start"
+                                    BackgroundColor="Transparent"
+                                    Image="instagram.png"
+                                    Text="Instagram">
+                            </Button>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal"
+                            HorizontalOptions="FillAndExpand"
+                            Margin="-5,0"
+                            Padding="0"
+                            BackgroundColor="Transparent"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="10"
+                            Grid.Row="5">
+                            <Button HorizontalOptions="Start"
+                                    BackgroundColor="Transparent"
+                                    Image="messenger.png"
+                                    Text="Messenger">
+                            </Button>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal"
+                            HorizontalOptions="FillAndExpand"
+                            Margin="-5,0"
+                            Padding="0"
+                            BackgroundColor="Transparent"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="10"
+                            Grid.Row="6">
+                            <Button HorizontalOptions="Start"
+                                    BackgroundColor="Transparent"
+                                    Image="twitter.png"
+                                    Text="Twitter">
+                            </Button>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </AbsoluteLayout>
+    </StackLayout>
+</pages:PopupPage>

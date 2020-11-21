@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tt="clr-namespace:SmartApp.TouchTracking;assembly=SmartApp"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:controls="clr-namespace:SmartApp.Controls;assembly=SmartApp"
+             xmlns:converters="clr-namespace:SmartApp.Util"
+             x:Class="SmartApp.ImageDetail">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageFileToImageSourceConverter x:Key="ImageFileToImageSourceConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Grid VerticalOptions="FillAndExpand"  Margin="{OnPlatform iOS='0,30,0,0', Android=0}" RowSpacing="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0"
+                    Grid.Column="2"
+                    HorizontalOptions="End"
+                    BackgroundColor="Transparent"
+                    Image="ham.png"    
+                    HeightRequest="{OnPlatform iOS=40, Android=35}"
+                    WidthRequest="{OnPlatform iOS=40, Android=35}"
+                    Clicked="btnHelp_Clicked">
+            </Button>
+
+            <Grid VerticalOptions="Fill" HorizontalOptions="Fill" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1">
+                <controls:AdMobBanner HeightRequest="50" />
+            </Grid>
+            
+            <Grid x:Name="gridCanvas" HorizontalOptions="Fill" VerticalOptions="Fill" HeightRequest="350" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" BackgroundColor="#000000">
+                <skia:SKCanvasView x:Name="canvasView" PaintSurface="OnPaintSurface"/>
+                <Grid.Effects>
+                    <tt:TouchEffect Capture="True" TouchAction="OnTouchEffectAction" />
+                </Grid.Effects>
+            </Grid>
+            
+            <Label Text="ｉｒｏａｉ " FontSize="12"  TextColor="Black" Grid.Column="2" Grid.Row="3" HorizontalOptions="EndAndExpand" x:Name="lblTitle"/>
+            <ScrollView x:Name="scrollView" BackgroundColor="#FFFFFF" VerticalScrollBarVisibility="Never" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4" Orientation="Vertical">
+                <StackLayout BackgroundColor="#FFFFFF"
+                             Grid.Column="0" 
+                             Grid.ColumnSpan="3" 
+                             Grid.Row="2" 
+                             VerticalOptions="FillAndExpand" >
+                    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="39.5" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="0,0,0,0" x:Name="pickColorList" Spacing="0">
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Margin="10,0,0,0">
+                            <Button BackgroundColor="Transparent" BorderRadius="24" x:Name="btnColor" 
+                                         WidthRequest="48" />
+                            <Label Text="" TextColor="Gray" x:Name="lblSelected"
+                                           FontSize="15"
+                                           VerticalOptions="Center"  HorizontalOptions="End"/>
+                        </StackLayout>
+                        <StackLayout  HorizontalOptions="EndAndExpand"  Grid.Column="1" Grid.Row="2">
+                            <Button Image="delete.png"
+                            BackgroundColor="Transparent"                                
+                            FlexLayout.AlignSelf="Center"
+                            FlexLayout.Grow="1"
+                            Clicked="btn_Delete_Click"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" VerticalOptions="FillAndExpand">
+                            <Grid VerticalOptions="FillAndExpand"  RowSpacing="2" 
+                                  Margin="20,0,20,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="aaa" FontSize="15"  TextColor="Black" Grid.Column="1" Grid.Row="0" WidthRequest="300"  HorizontalTextAlignment="End"  HorizontalOptions="End" x:Name="lblRgb"/>
+                                <Label Text="RGB" FontSize="15" TextColor="Black" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start"/>
+                                
+                                <Label Text="HEX" FontSize="15"  TextColor="Black" Grid.Column="0" Grid.Row="1" HorizontalOptions="Start"/>
+                                <Label Text="" FontSize="15"  TextColor="Black" Grid.Column="1" Grid.Row="1" WidthRequest="300"  HorizontalTextAlignment="End"  HorizontalOptions="End" x:Name="lblHex"/>
+
+                                <Label Text="HSL" FontSize="15"  TextColor="Black" Grid.Column="0" Grid.Row="2" HorizontalOptions="Start"/>
+                                <Label Text="" FontSize="15"  TextColor="Black" Grid.Column="1" Grid.Row="2" WidthRequest="300"  HorizontalTextAlignment="End"  HorizontalOptions="End" x:Name="lblHsl"/>
+
+                                <Label Text="HSV" FontSize="15"  TextColor="Black" Grid.Column="0" Grid.Row="3" HorizontalOptions="Start"/>
+                                <Label Text=""  FontSize="15" TextColor="Black" Grid.Column="1" Grid.Row="3" WidthRequest="300"  HorizontalTextAlignment="End"  HorizontalOptions="End" x:Name="lblHsv"/>
+
+                                <Label Text="CMYK"  FontSize="15" TextColor="Black" Grid.Column="0" Grid.Row="4" HorizontalOptions="Start"/>
+                                <Label Text="" FontSize="15"  TextColor="Black" Grid.Column="1" Grid.Row="4"  WidthRequest="300"  HorizontalTextAlignment="End"  HorizontalOptions="End" x:Name="lblCmyk"/>
+
+                                <Label Text="Lab" FontSize="15"  TextColor="Black" Grid.Column="0" Grid.Row="5" HorizontalOptions="Start"/>
+                                <Label Text=""  FontSize="15" TextColor="Black" Grid.Column="1" Grid.Row="5" WidthRequest="300"  HorizontalTextAlignment="End"  HorizontalOptions="End" x:Name="lblLab"/>
+
+                                <Label Text="MUNSELL" FontSize="15"  TextColor="Black" Grid.Column="0" Grid.Row="6" HorizontalOptions="Start"/>
+                                <Label Text="" FontSize="15"  TextColor="Black" Grid.Column="1" Grid.Row="6" WidthRequest="300"  HorizontalTextAlignment="End"  HorizontalOptions="End" x:Name="lblMunsell"/>
+
+                                <Label Text="PCCSカラー"  FontSize="15" TextColor="Black" Grid.Column="0" Grid.Row="7" HorizontalOptions="Start"/>
+                                <Label Text="" FontSize="15"  TextColor="Black" Grid.Column="1" Grid.Row="7" WidthRequest="300"  HorizontalTextAlignment="End"  HorizontalOptions="End" x:Name="lblPccs"/>
+
+                                <Label Text="JIS慣用色"  FontSize="15" TextColor="Black" Grid.Column="0" Grid.Row="8" HorizontalOptions="Start" IsVisible="False"/>
+                                <Label Text="" FontSize="15" TextColor="Black" Grid.Column="1" Grid.Row="8" WidthRequest="300"  HorizontalTextAlignment="End"  HorizontalOptions="End" x:Name="lblJis" IsVisible="False"/>
+
+                            </Grid>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+
+
+            <StackLayout Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="5" BackgroundColor="#EEEEEE" VerticalOptions="FillAndExpand">
+                <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="15" />
+                    </Grid.RowDefinitions>
+                    <Button Image="home.png"
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            BackgroundColor="Transparent"                                
+                            HeightRequest="30"
+                            FlexLayout.AlignSelf="Center"
+                            FlexLayout.Grow="1"
+                            Clicked="btnHome_Clicked"
+                            VerticalOptions="Center"
+                            Margin="0, 0, 0, -5"/>
+                    <Label Text="ホーム"
+                           FontSize="12"
+                           TextColor="Black"
+                           Grid.Column="0"
+                           Grid.Row="1"
+                           HorizontalOptions="Center"
+                           Margin="0, -3, 0, 0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnHome_Clicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Button Image="library.png"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            BackgroundColor="Transparent"                                
+                            HeightRequest="30"
+                            FlexLayout.AlignSelf="Center"
+                            FlexLayout.Grow="1"
+                            Clicked="btnRead_Clicked"
+                            VerticalOptions="Center"
+                            Margin="0, 0, 0, -5"/>
+                    <Label Text="再取込"
+                           FontSize="12"
+                           TextColor="Black"
+                           Grid.Column="1"
+                           Grid.Row="1"
+                           HorizontalOptions="Center"
+                           Margin="0, -3, 0, 0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnRead_Clicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Button Image="save.png"
+                            Grid.Column="2"
+                            Grid.Row="0"
+                            BackgroundColor="Transparent"                                
+                            HeightRequest="30"
+                            FlexLayout.AlignSelf="Center"
+                            FlexLayout.Grow="1"
+                            Clicked="btnSave_Clicked"
+                            VerticalOptions="Center"
+                            Margin="0, 0, 0, -5"/>
+                    <Label Text="保存"
+                           FontSize="12"
+                           TextColor="Black"
+                           Grid.Column="2"
+                           Grid.Row="1"
+                           HorizontalOptions="Center"
+                           Margin="0, -3, 0, 0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnSave_Clicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Button Image="open.png"
+                            Grid.Column="3"
+                            Grid.Row="0"
+                            BackgroundColor="Transparent"                                
+                            HeightRequest="30"
+                            FlexLayout.AlignSelf="Center"
+                            FlexLayout.Grow="1"
+                            Clicked="btnOpen_Clicked"
+                            VerticalOptions="Center"
+                            Margin="0, 0, 0, -5"/>
+                    <Label Text="開く"
+                           FontSize="12"
+                           TextColor="Black"
+                           Grid.Column="3"
+                           Grid.Row="1"
+                           HorizontalOptions="Center"
+                           Margin="0, -3, 0, 0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnOpen_Clicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Button Image="share.png"
+                            Grid.Column="4"
+                            Grid.Row="0"
+                            BackgroundColor="Transparent"                                
+                            HeightRequest="25"
+                            FlexLayout.AlignSelf="Center"
+                            FlexLayout.Grow="1"
+                            Clicked="btnCommon_Clicked"
+                            VerticalOptions="Center"
+                            Margin="0, 0, 0, -5"/>
+                    <Label Text="シェア"
+                           FontSize="12"
+                           TextColor="Black"
+                           Grid.Column="4"
+                           Grid.Row="1"
+                           HorizontalOptions="Center"
+                           Margin="0, -3, 0, 0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnCommon_Clicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+            </StackLayout>
+
+
+        </Grid>
+    </StackLayout>
+</ContentPage>

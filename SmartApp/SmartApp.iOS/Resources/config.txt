@@ -1,0 +1,5 @@
+scaledRatio1=1
+scaledRatio2=1.25
+scaledRatio3=1.5
+scaledRatio4=2
+scaledRatio5=2.5

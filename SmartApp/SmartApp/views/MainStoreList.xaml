@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartApp.views.MainStoreList">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid VerticalOptions="FillAndExpand"  Margin="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Row="0"
+                        Grid.Column="1"
+                        HorizontalOptions="End"                    
+                        Image="Help.png"    
+                        HeightRequest="{OnPlatform iOS=40, Android=35}"
+                        WidthRequest="{OnPlatform iOS=40, Android=35}"
+                        Clicked="btnHelp_Clicked"
+                    >
+                </Button>
+                <Label Text="保存リスト"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="1"
+                   x:Name="SaveListName"></Label>
+                <ListView Grid.Row="2" Grid.ColumnSpan="2" RowHeight="80" ItemsSource="{Binding FolderItems}" x:Name="MyListView" ItemTapped="MyListView_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding .}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <StackLayout 
+                Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3"
+                BackgroundColor="#EEEEEE" VerticalOptions="EndAndExpand"
+                >
+                    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                Margin="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ImageButton Source="home.PNG" 
+                                 Grid.Column="0"
+                                BackgroundColor="Transparent"                                
+                                HeightRequest="40"
+                                FlexLayout.AlignSelf="Center"
+                                FlexLayout.Grow="1"
+                                Clicked="btnReturnHome_Click"
+                                Aspect="AspectFit"
+                                 HorizontalOptions="CenterAndExpand"
+                                 x:Name="btnReturnHome"
+                                 >
+                        </ImageButton>
+                        <ImageButton Source="read.PNG" 
+                                 Grid.Column="1"
+                                BackgroundColor="Transparent"                               
+                                HeightRequest="40"
+                                FlexLayout.AlignSelf="Center"
+                                 HorizontalOptions="CenterAndExpand"
+                                FlexLayout.Grow="1"                                
+                                Aspect="AspectFit"
+                                 Clicked="btnRead_Click">
+                        </ImageButton>
+                        <ImageButton Source="save.PNG" 
+                                 Grid.Column="2"
+                                BackgroundColor="Transparent"                                
+                                HeightRequest="40"
+                                FlexLayout.AlignSelf="Center"
+                                 HorizontalOptions="CenterAndExpand"
+                                FlexLayout.Grow="1"                                
+                                Aspect="AspectFit"
+                                 Clicked="btnSave_Click">
+                        </ImageButton>
+                        <ImageButton Source="open.PNG" 
+                                 Grid.Column="3"
+                                BackgroundColor="Transparent"                                
+                                HeightRequest="40"
+                                FlexLayout.AlignSelf="Center"
+                                 HorizontalOptions="CenterAndExpand"
+                                FlexLayout.Grow="1"                                
+                                Aspect="AspectFit">
+                        </ImageButton>
+
+                        <ImageButton Source="common.PNG" 
+                                 Grid.Column="4"
+                                 BackgroundColor="Transparent"                                
+                                 HeightRequest="40"
+                                 FlexLayout.AlignSelf="Center"
+                                 HorizontalOptions="CenterAndExpand"
+                                 FlexLayout.Grow="1"                                
+                                 Aspect="AspectFit"
+                                 Clicked="btnCommon_Click">
+                        </ImageButton>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

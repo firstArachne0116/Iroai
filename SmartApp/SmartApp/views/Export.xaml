@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:SmartApp.Util"
+             x:Class="SmartApp.views.Export">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageFileToImageSourceConverter x:Key="ImageFileToImageSourceConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid VerticalOptions="FillAndExpand" Margin="{OnPlatform iOS='0,30,0,0', Android=0}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand">
+                    <Button HorizontalOptions="StartAndExpand"
+                        BackgroundColor="Transparent"
+                        Image="returnBack.png"   
+                        FontAttributes="Bold"
+                        TextColor="#000000"
+                        FontSize="{OnPlatform iOS=18, Android=12}" 
+                        HeightRequest="{OnPlatform iOS=40, Android=35}"
+                        x:Name="RetrunName"
+                        Clicked="btn_Return">
+                    </Button>
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" Grid.Row="0" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
+                    <Button HorizontalOptions="EndAndExpand"
+                        BackgroundColor="Transparent"
+                        Image="Help.png"    
+                        HeightRequest="{OnPlatform iOS=40, Android=35}"
+                        WidthRequest="{OnPlatform iOS=40, Android=35}"
+                        Clicked="btnHelp_Clicked">
+                    </Button>
+                </StackLayout>
+
+                <Label Text="保存リスト名"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="1"
+                   x:Name="SaveListName"></Label>
+                <ListView Grid.Row="2" Grid.ColumnSpan="2" RowHeight="80" ItemsSource="{Binding ListViewSource}" x:Name="MyListView" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell x:Name="MyViewCell">
+
+                                <Grid Margin="4">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>                                    
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Title}" VerticalOptions="FillAndExpand" FontSize="16" />
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding ImageSrc}" IsVisible="False" />
+                                    <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Aspect="AspectFill"  Source="{Binding Imagebyte, Converter={StaticResource ImageFileToImageSourceConverter}}"/>
+                                    <StackLayout Spacing="0" Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" x:Name="pickColorList">
+                                        <Label BackgroundColor="{Binding pickcolor01}"
+                                               HeightRequest="{OnPlatform iOS=15, Android=20}"
+                                               WidthRequest="{OnPlatform iOS=20, Android=25}"
+                                               x:Name="pickcolor01"
+                                               >
+                                        </Label>
+                                        <Label BackgroundColor="{Binding pickcolor02}"
+                                                HeightRequest="{OnPlatform iOS=15, Android=20}"
+                                               WidthRequest="{OnPlatform iOS=20, Android=25}"
+                                               x:Name="pickcolor02">
+                                        </Label>
+                                        <Label BackgroundColor="{Binding pickcolor03}"
+                                               HeightRequest="{OnPlatform iOS=15, Android=20}"
+                                               WidthRequest="{OnPlatform iOS=20, Android=25}"
+                                               x:Name="pickcolor03">
+                                        </Label>
+                                        <Label BackgroundColor="{Binding pickcolor04}"
+                                               HeightRequest="{OnPlatform iOS=15, Android=20}"
+                                               WidthRequest="{OnPlatform iOS=20, Android=25}"
+                                               x:Name="pickcolor04">
+                                        </Label>
+                                        <Label BackgroundColor="{Binding pickcolor05}"
+                                               HeightRequest="{OnPlatform iOS=15, Android=20}"
+                                               WidthRequest="{OnPlatform iOS=20, Android=25}"
+                                               x:Name="pickcolor05">
+                                        </Label>
+                                        <Label BackgroundColor="{Binding pickcolor06}"
+                                             HeightRequest="{OnPlatform iOS=15, Android=20}"
+                                               WidthRequest="{OnPlatform iOS=20, Android=25}"
+                                               x:Name="pickcolor06">
+                                        </Label>
+                                        <Label BackgroundColor="{Binding pickcolor07}"
+                                              HeightRequest="{OnPlatform iOS=15, Android=20}"
+                                               WidthRequest="{OnPlatform iOS=20, Android=25}"
+                                               x:Name="pickcolor07">
+                                        </Label>
+                                        <Label BackgroundColor="{Binding pickcolor08}"
+                                              HeightRequest="{OnPlatform iOS=15, Android=20}"
+                                               WidthRequest="{OnPlatform iOS=20, Android=25}"
+                                               x:Name="pickcolor08">
+                                        </Label>
+                                        <Label BackgroundColor="{Binding pickcolor09}"
+                                               HeightRequest="{OnPlatform iOS=15, Android=20}"
+                                               WidthRequest="{OnPlatform iOS=20, Android=25}"
+                                               x:Name="pickcolor09">
+                                        </Label>
+                                        <Label BackgroundColor="{Binding pickcolor10}"
+                                              HeightRequest="{OnPlatform iOS=15, Android=20}"
+                                               WidthRequest="{OnPlatform iOS=20, Android=25}"
+                                               x:Name="pickcolor10">
+                                        </Label>
+                                    </StackLayout>
+                                </Grid>
+                                <!--<ViewCell.ContextActions>
+                                    <MenuItem Clicked="DeleteAction_Clicked" CommandParameter="{Binding .}" Text="削除" IsDestructive="True"/>
+                                </ViewCell.ContextActions>-->
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartApp.LocalPhoto">
+    <StackLayout>
+        <Grid VerticalOptions="FillAndExpand"
+          Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="120" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0"
+               Grid.ColumnSpan="2"
+               Grid.Row="0"
+                   Grid.RowSpan="3"
+                   Source="./Image/Logo.PNG"
+                   />
+            <Label Text="LocalPhoto"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="2"></Label>
+            <Button
+                Grid.Column="0"
+                Grid.Row="3"
+                Text="戻る"
+                Clicked="btn_Return"
+               />
+
+            <Button
+                Grid.Column="1"
+                Grid.Row="3"
+                Text="保存"
+                Clicked="btn_SaveImageInfo"
+               />
+        </Grid>
+    </StackLayout>
+</ContentPage>

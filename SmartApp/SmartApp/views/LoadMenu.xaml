@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 x:Class="SmartApp.views.LoadMenu" x:Name="PopupMaster">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation PositionIn="Bottom"
+                                   PositionOut="Bottom"
+                                   ScaleIn="0.5"
+                                   ScaleOut="0.5"
+                                   DurationIn="300"
+                                   EasingIn="CubicInOut" />
+    </pages:PopupPage.Animation>
+    <ScrollView HorizontalOptions="Start"
+                VerticalOptions="End"
+                Padding="100,0,0,45">
+        <AbsoluteLayout Margin="0,10,0,0"
+                        x:Name="MainLayout">
+            <Frame x:Name="FrameContainer"
+                   Margin="0,5,5,0"
+                   HorizontalOptions="Center"
+                   BorderColor="Transparent"
+                   BackgroundColor="White">
+                <ListView x:Name="SecondaryToolbarListView"
+                          VerticalOptions="Start"
+                          HorizontalOptions="Start"
+                          WidthRequest="120"
+                          HasUnevenRows="True"
+                          ItemsSource="{Binding Source={x:Reference PopupMaster},Path=MenuItems}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="FillAndExpand"
+                                             Margin="0"
+                                             Spacing="0"
+                                             HeightRequest="25"
+                                             Padding="3,0,0,0">
+                                    <Label x:Name="menuText"
+                                           Text="{Binding MenuText}"
+                                           FontSize="15"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Start" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+            <ContentView AbsoluteLayout.LayoutFlags="XProportional"
+                         AbsoluteLayout.LayoutBounds="0,0,0,0">
+                <ContentView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCloseButtonTapped" />
+                </ContentView.GestureRecognizers>
+                <BoxView HeightRequest="15"
+                         x:Name="CloseImage"
+                         WidthRequest="15"
+                         BackgroundColor="White"></BoxView>
+            </ContentView>
+        </AbsoluteLayout>
+    </ScrollView>
+</pages:PopupPage>

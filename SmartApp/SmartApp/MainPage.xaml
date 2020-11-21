@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SmartApp"
+             x:Class="SmartApp.MainPage">
+
+    <StackLayout>       
+        <Grid VerticalOptions="FillAndExpand" BackgroundColor="#FFFFFF" Margin="{OnPlatform iOS='0,30,0,0', Android=0}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="2" Grid.Row="0" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
+                <Button HorizontalOptions="FillAndExpand"
+                        BackgroundColor="Transparent"
+                        Image="ham.png"    
+                        HeightRequest="{OnPlatform iOS=40, Android=34}"
+                        WidthRequest="{OnPlatform iOS=40, Android=34}"
+                        Clicked="btnHelp_Clicked"
+                        >
+                </Button>
+            </StackLayout>
+
+            <Image
+                Source="Logo.png"
+                Grid.Row="1"
+                   Grid.RowSpan="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+               Aspect="AspectFit"
+               HeightRequest="{OnPlatform iOS=319, Android=638}"
+               WidthRequest="{OnPlatform iOS=270, Android=540}"
+               HorizontalOptions="Center"
+               VerticalOptions ="Center"/>
+
+            <StackLayout Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" BackgroundColor="#EEEEEE" VerticalOptions="EndAndExpand" HeightRequest="45">
+                <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="15" />
+                    </Grid.RowDefinitions>
+                    <Button Image="camera.png"
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            BackgroundColor="Transparent"                                
+                            HeightRequest="30"
+                            FlexLayout.AlignSelf="Center"
+                            FlexLayout.Grow="1"
+                            Clicked="btnCamera_Click"
+                            VerticalOptions="Center"
+                            x:Name="btnCamera"
+                            Margin="0, 0, 0, -5"/>
+                    <Label Text="カメラ"
+                           FontSize="12"
+                           TextColor="Black"
+                           Grid.Column="0"
+                           Grid.Row="1"
+                           HorizontalOptions="Center"
+                           Margin="0, -3, 0, 0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnCamera_Click"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Button Image="library.png"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            BackgroundColor="Transparent"                                
+                            HeightRequest="30"
+                            FlexLayout.AlignSelf="Center"
+                            FlexLayout.Grow="1"
+                            Clicked="btnPick_Click"
+                            VerticalOptions="Center"
+                            Margin="0, 0, 0, -5"/>
+                    <Label Text="ライブラリ"
+                           FontSize="12"
+                           TextColor="Black"
+                           Grid.Column="1"
+                           Grid.Row="1"
+                           HorizontalOptions="Center"
+                           Margin="0, -3, 0, 0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnPick_Click"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Button Image="list.png"
+                            Grid.Column="2"
+                            Grid.Row="0"
+                            BackgroundColor="Transparent"
+                            HeightRequest="30"
+                            FlexLayout.AlignSelf="Center"
+                            FlexLayout.Grow="1"
+                            Clicked="btnStore_Click"
+                            VerticalOptions="Center"
+                            Margin="0, 0, 0, -5"/>
+                    <Label Text="保存リスト"
+                           FontSize="12"
+                           TextColor="Black"
+                           Grid.Column="2"
+                           Grid.Row="1"
+                           HorizontalOptions="Center"
+                           Margin="0, -3, 0, 0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnStore_Click"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+            </StackLayout>
+            
+            
+        </Grid>       
+    </StackLayout>
+
+</ContentPage>
