@@ -1,6 +1,5 @@
 ﻿using Acr.UserDialogs;
 using AdMob.DependencyServices;
-using Android.App;
 using Microsoft.AppCenter.Crashes;
 using Plugin.Media.Abstractions;
 using Rg.Plugins.Popup.Extensions;
